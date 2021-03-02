@@ -44,3 +44,6 @@ and inside the `build/dist` directory there should be three shared libraries whi
 On Windows you do need to clone with submodules. The best way to do this is by running (you need the `git` tool installed):<br>
 ```git clone https://github.com/ProtoByter/ReMania-GameBox --recurse-submodules```
 
+Now follow the instuctions for building on Linux, without the package manager stuff
+
+
