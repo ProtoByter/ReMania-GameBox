@@ -4,3 +4,15 @@
 [submodule "lib/glew"]
 	path = lib/glew
 	url = https://github.com/perlmint/glew-cmake.git
+[submodule "lib/stb"]
+	path = lib/stb
+	url = https://github.com/nothings/stb.git
+[submodule "cmake"]
+	path = cmake
+	url = https://github.com/aminosbh/sdl2-cmake-modules.git
+[submodule "lib/entt"]
+	path = lib/entt
+	url = https://github.com/skypjack/entt.git
+[submodule "lib/glm"]
+	path = lib/glm
+	url = https://github.com/g-truc/glm.git
