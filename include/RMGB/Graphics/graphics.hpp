@@ -1,25 +1,62 @@
+#ifndef GRAHPICS_HPP_INDLUDED
+#define GRAHPICS_HPP_INDLUDED
 #include <SDL.h>
 #include <queue>
-#include <variant>
 #include <Utils/logger.hpp>
 #include <entt/entt.hpp>
 #include <glm/glm.hpp>
-
-#ifdef OPENGL
-#include <SDL_opengl.h>
-#endif
-
-#ifdef VULKAN
-#include <SDL_vulkan.h>
-#endif
+#include <queue>
+#include <mutex>
 
 // NOTE: This is heavily inspired by the Hazel RendererAPI Template
 
-namespace RMGB::Graphics {
+namespace RMGB { namespace Graphics {
+
+    template<typename T>
+    class queue
+    {
+    public:
+        void push( const T& value )
+        {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            m_queue.push(value);
+        }
+
+        T pop()
+        {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            T object = m_queue.front();
+            m_queue.pop();
+            return object;
+        }
+
+    private:
+        std::queue<T> m_queue;
+        mutable std::mutex m_mutex;
+    };
+
+    struct Settings {
+        bool vsync;
+        glm::vec<2,int,glm::defaultp> windowedSize;
+        glm::vec<2,int,glm::defaultp> fullScreenSize;
+        bool fullscreen;
+        bool operator==(Settings other) {
+            bool equals = true;
+            equals &= windowedSize == other.windowedSize;
+            equals &= fullScreenSize == other.fullScreenSize;
+            equals &= vsync == other.vsync;
+            equals &= fullscreen == other.fullscreen;
+            return equals;
+        }
+        bool operator!=(Settings other) {
+            return !operator==(other);
+        }
+    };
 
     enum GPU_API {
-        OpenGL,
-        Vulkan
+        OpenGL_API,
+        Vulkan_API
+        PS3_API
     };
 
     class APISpec {
@@ -88,10 +125,26 @@ namespace RMGB::Graphics {
 
     class Backend {
     public:
-        virtual void Init() = 0;
+        virtual void Init(int what = 0xFF) = 0;
         virtual void Update() = 0;
         virtual void Schedule(RenderCommand command) = 0;
         virtual void toggleImGui() = 0;
-        std::queue<RenderCommand> commands;
+        virtual SDL_KeyCode getLastKey() = 0;
+        virtual bool isKeyPressed(SDL_KeyCode key) = 0;
+        virtual glm::vec2 getMousePos() = 0;
+        virtual bool isMousePressed() = 0;
+        virtual void Destroy() = 0;
+        virtual void changeSettings() = 0;
+        queue<RenderCommand> commands;
     };
-}
+} }
+
+#ifdef OPENGL
+#include "backends/opengl.hpp"
+#endif
+
+#ifdef VULKAN
+#error "Vulkan Support is not yet implemented"
+#endif
+
+#endif
