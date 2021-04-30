@@ -6,4 +6,4 @@ FROM gitpod/workspace-full-vnc
 #
 # More information: https://www.gitpod.io/docs/config-docker/
 
-RUN sudo apt update && sudo apt install libglu1-mesa-dev freeglut3-dev mesa-common-dev libxrandr-dev xorg-dev
+RUN sudo apt update && sudo apt install libglu1-mesa-dev freeglut3-dev mesa-common-dev libxrandr-dev xorg-dev -y
