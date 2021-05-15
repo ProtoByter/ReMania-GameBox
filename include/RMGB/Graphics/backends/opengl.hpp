@@ -11,12 +11,6 @@
 #include <Tracy.hpp>
 #include <atomic>
 
-#ifdef NDEBUG
-#include "shaders-OpenGL.hpp"
-#else
-#define RMGB_SHADER_FROM_FILE
-#endif
-
 namespace RMGB::Graphics::OpenGL {
     class Backend : private RMGB::Graphics::Backend {
         bool CheckAPISpecObj(APISpec Obj);
@@ -44,9 +38,10 @@ namespace RMGB::Graphics::OpenGL {
     class Shader : private RMGB::Graphics::Shader {
     public:
         Shader(std::string& content);
-        Shader(std::ifstream& content);
+        Shader(std::string content);
+        Shader(std::ifstream& file);
         void fromString(std::string& content) override;
-        void fromFile(std::ifstream& content) override;
+        void fromFile(std::ifstream& file) override;
     };
 
 

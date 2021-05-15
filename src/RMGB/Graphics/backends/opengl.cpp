@@ -130,7 +130,8 @@ namespace RMGB::Graphics::OpenGL {
 
     }
 
-    Shader::Shader(std::ifstream& file) {
+    Shader::Shader(std::string content)
+    {
 
     }
 

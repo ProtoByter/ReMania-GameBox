@@ -136,23 +136,6 @@ endif()
 add_custom_target(ReMania-GameBox)
 add_dependencies(ReMania-GameBox RMGB-Graphics RMGB-Physics RMGB-Assets)
 
-# Generate Shader File for Release mode
-
-if (CMAKE_BUILD_TYPE MATCHES "Release")
-    if (USE_OPENGL)
-        set(API "OpenGL")
-    elseif(PS3)
-        set(API "RSX")
-    elseif(USE_VULKAN)
-        message(FATAL_ERROR "Vulkan isn't supported yet lol")
-    endif()
-
-    add_custom_command (TARGET RMGB-Graphics
-                        PRE_BUILD
-                        COMMAND python generate_shader_files.py ${API} ${CMAKE_SOURCE_DIR}
-                        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-endif()
-
 if(BUILD_SAMPLES)
     add_subdirectory(samples)
 endif()
