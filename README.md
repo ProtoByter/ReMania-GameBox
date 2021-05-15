@@ -4,6 +4,10 @@
 
 This project is an open source reimplementation of the GameBox game engine used in games by Nadeo such as TrackMania Nations Forever
 
+## Documentation
+
+https://protobyter.github.io/ReMania-GameBox
+
 ## How to build
 
 ### Prerequisites
