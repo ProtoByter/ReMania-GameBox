@@ -19,3 +19,9 @@
 [submodule "Docs/doxygen-awesome-css"]
 	path = Docs/doxygen-awesome-css
 	url = https://github.com/jothepro/doxygen-awesome-css.git
+[submodule "lib/imgui-ocornut"]
+	path = lib/imgui-ocornut
+	url = https://github.com/ocornut/imgui
+[submodule "lib/sdl"]
+	path = lib/sdl
+	url = https://github.com/libsdl-org/SDL

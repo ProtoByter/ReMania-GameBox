@@ -62,8 +62,8 @@ endif()
 # Add libraries
 if (NOT PS3)
     add_library(RMGB-Graphics SHARED ${SRC_DIR}/Graphics/graphics.cpp
-                lib/imgui/imgui.cpp lib/imgui/imgui_draw.cpp lib/imgui/imgui_tables.cpp lib/imgui/imgui_widgets.cpp
-                lib/imgui/backends/imgui_impl_sdl.cpp)
+                lib/imgui-ocornut/imgui.cpp lib/imgui-ocornut/imgui_draw.cpp lib/imgui-ocornut/imgui_tables.cpp lib/imgui-ocornut/imgui_widgets.cpp
+                lib/imgui-ocornut/backends/imgui_impl_sdl.cpp)
 
     add_library(RMGB-Physics SHARED ${SRC_DIR}/Physics/physics.cpp)
 
@@ -77,8 +77,8 @@ if (NOT PS3)
     endif()
 else()
     add_library(RMGB-Graphics STATIC ${SRC_DIR}/Graphics/graphics.cpp
-            lib/imgui/imgui.cpp lib/imgui/imgui_draw.cpp lib/imgui/imgui_tables.cpp lib/imgui/imgui_widgets.cpp
-            lib/imgui/backends/imgui_impl_sdl.cpp)
+            lib/imgui-ocornut/imgui.cpp lib/imgui-ocornut/imgui_draw.cpp lib/imgui-ocornut/imgui_tables.cpp lib/imgui-ocornut/imgui_widgets.cpp
+            lib/imgui-ocornut/backends/imgui_impl_sdl.cpp)
     setupPSL1GHT_library(RMGB-Graphics)
     add_library(RMGB-Physics STATIC ${SRC_DIR}/Physics/physics.cpp)
     setupPSL1GHT_library(RMGB-Physics)
@@ -99,7 +99,7 @@ endif()
 
 set(COMMON_LIB_INCLUDES ${CMAKE_SOURCE_DIR}/${INC_DIR} ${CMAKE_SOURCE_DIR}/lib lib/entt/single_include lib/glm tracy)
 
-target_include_directories(RMGB-Graphics PUBLIC ${COMMON_LIB_INCLUDES} lib/imgui lib/imgui/backends)
+target_include_directories(RMGB-Graphics PUBLIC ${COMMON_LIB_INCLUDES} lib/imgui-ocornut lib/imgui-ocornut/backends)
 target_include_directories(RMGB-Physics PUBLIC ${COMMON_LIB_INCLUDES})
 target_include_directories(RMGB-Assets PUBLIC ${COMMON_LIB_INCLUDES})
 target_include_directories(RMGB-Utils PUBLIC ${COMMON_LIB_INCLUDES})
@@ -113,7 +113,7 @@ if(USE_OPENGL)
     find_package(GLEW 1.9)
     find_package(SDL2 QUIET)
     find_package(SDL2_image QUIET)
-    target_sources(RMGB-Graphics PUBLIC src/RMGB/Graphics/backends/opengl.cpp lib/imgui/backends/imgui_impl_opengl3.cpp)
+    target_sources(RMGB-Graphics PUBLIC src/RMGB/Graphics/backends/opengl.cpp lib/imgui-ocornut/backends/imgui_impl_opengl3.cpp)
     target_compile_definitions(RMGB-Graphics PUBLIC OPENGL)
     if (GLEW_FOUND)
         target_link_libraries(RMGB-Graphics PUBLIC GLEW::GLEW)
@@ -127,9 +127,9 @@ if(USE_OPENGL)
         target_include_directories(RMGB-Graphics PUBLIC ${SDL2_INCLUDE_DIRS})
     else()
         message(" -- Building SDL2 from scratch")
-        add_subdirectory("lib/sdl2")
+        add_subdirectory("lib/sdl")
         target_link_libraries(RMGB-Graphics PUBLIC SDL2)
-        target_include_directories(RMGB-Graphics PUBLIC lib/sdl2/include)
+        target_include_directories(RMGB-Graphics PUBLIC lib/sdl/include)
     endif()
 endif()
 
