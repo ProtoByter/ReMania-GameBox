@@ -6,7 +6,7 @@
 
 namespace RMGB::Graphics::PS3 {
     bool Backend::CheckAPISpecObj(APISpec Obj) {
-        return false;
+        return Obj.getAPI() == ON_PS3_API;
     }
 
     void Backend::Init(int what) {
@@ -27,22 +27,6 @@ namespace RMGB::Graphics::PS3 {
 
     void Backend::changeSettings() {
 
-    }
-
-    bool Backend::isMousePressed() {
-        return false;
-    }
-
-    SDL_Keycode Backend::getLastKey() {
-        return nullptr;
-    }
-
-    bool Backend::isKeyPressed(SDL_Keycode key) {
-        return false;
-    }
-
-    glm::vec2 Backend::getMousePos() {
-        return glm::vec2();
     }
 
     void Backend::Destroy() {

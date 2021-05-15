@@ -3,7 +3,12 @@
 #include <SDL.h>
 #include <queue>
 #include <Utils/logger.hpp>
+#define ENOTRECOVERABLE 141	/* State not recoverable */
+#define EOWNERDEAD 142	/* Previous owner died */
 #include <entt/entt.hpp>
+#ifdef ON_PS3
+#define GLM_FORCE_CXX98
+#endif
 #include <glm/glm.hpp>
 #include <queue>
 #include <mutex>
@@ -16,23 +21,49 @@ namespace RMGB { namespace Graphics {
     class queue
     {
     public:
+#ifdef ON_ON_PS3
+        queue() {
+            m_mutex = SDL_CreateMutex();
+        }
+        ~queue() {
+            SDL_DestroyMutex(m_mutex);
+        }
+#endif
         void push( const T& value )
         {
+#ifdef ON_PS3
+            SDL_LockMutex(m_mutex);
+#else
             std::lock_guard<std::mutex> lock(m_mutex);
+#endif
             m_queue.push(value);
+#ifdef ON_PS3
+            SDL_UnlockMutex(m_mutex);
+#endif
         }
 
         T pop()
         {
+#ifdef ON_PS3
+            SDL_LockMutex(m_mutex);
+#else
             std::lock_guard<std::mutex> lock(m_mutex);
+#endif
             T object = m_queue.front();
             m_queue.pop();
+#ifdef ON_PS3
+            SDL_UnlockMutex(m_mutex);
+#endif
             return object;
         }
 
     private:
         std::queue<T> m_queue;
+#ifndef ON_PS3
         mutable std::mutex m_mutex;
+#else
+        SDL_mutex* m_mutex;
+#endif
     };
 
     struct Settings {
@@ -55,8 +86,8 @@ namespace RMGB { namespace Graphics {
 
     enum GPU_API {
         OpenGL_API,
-        Vulkan_API
-        PS3_API
+        Vulkan_API,
+        ON_PS3_API
     };
 
     class APISpec {
@@ -70,6 +101,9 @@ namespace RMGB { namespace Graphics {
 
     class Shader : private APISpec {
     public:
+        // These should be here but C++ can't do virtual initalizers so these should be present in anly classes that inherit from this
+        // Shader(std::string& content)
+        // Shader(std::irstream& file)
         virtual void fromString(std::string& content) = 0;
         virtual void fromFile(std::ifstream& content) = 0;
     };
@@ -129,10 +163,6 @@ namespace RMGB { namespace Graphics {
         virtual void Update() = 0;
         virtual void Schedule(RenderCommand command) = 0;
         virtual void toggleImGui() = 0;
-        virtual SDL_KeyCode getLastKey() = 0;
-        virtual bool isKeyPressed(SDL_KeyCode key) = 0;
-        virtual glm::vec2 getMousePos() = 0;
-        virtual bool isMousePressed() = 0;
         virtual void Destroy() = 0;
         virtual void changeSettings() = 0;
         queue<RenderCommand> commands;
@@ -145,6 +175,10 @@ namespace RMGB { namespace Graphics {
 
 #ifdef VULKAN
 #error "Vulkan Support is not yet implemented"
+#endif
+
+#ifdef ON_PS3
+#include "backends/ps3.hpp"
 #endif
 
 #endif

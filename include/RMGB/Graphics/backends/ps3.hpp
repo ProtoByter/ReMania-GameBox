@@ -5,9 +5,11 @@
 #ifndef REMANIA_GAMEBOX_PS3_H
 #define REMANIA_GAMEBOX_PS3_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#warning "This rendering backend is very very incomplete, use at your own peril"
+
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 #include <unistd.h>
 #include <malloc.h>
 #include <ppu-types.h>
@@ -31,21 +33,12 @@ namespace RMGB::Graphics::PS3 {
 
         void changeSettings() override;
 
-        bool isMousePressed() override;
-
-        SDL_KeyCode getLastKey() override;
-
-        bool isKeyPressed(SDL_KeyCode key) override;
-
-        glm::vec2 getMousePos() override;
-
         void Destroy() override;
 
     private:
         bool imGui = true;
         Settings settings{};
         Settings settingsbak{};
-
     };
 }
 

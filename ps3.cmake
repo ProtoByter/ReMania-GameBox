@@ -1,0 +1,16 @@
+set(CMAKE_SYSTEM_NAME PS3)
+set(CMAKE_SYSTEM_PROCESSOR ppc64)
+
+if(${PS3_SYSROOT} STREQUAL "")
+    message(FATAL_ERROR "For building with PSL1GHT, you need to have the PSL1GHT Environment variable set")
+endif()
+
+set(CMAKE_C_COMPILER ${PS3_SYSROOT}/usr/bin/powerpc64-ps3-elf-gcc)
+set(CMAKE_CXX_COMPILER ${PS3_SYSROOT}/usr/bin/powerpc64-ps3-elf-g++)
+
+set(CMAKE_SYSROOT ${PS3_SYSROOT})
+
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
