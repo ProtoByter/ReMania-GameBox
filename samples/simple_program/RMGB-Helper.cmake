@@ -1,0 +1,2 @@
+macro(setupRMGB target)
+endmacro()
