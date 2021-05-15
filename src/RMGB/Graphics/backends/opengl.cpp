@@ -29,6 +29,10 @@ namespace RMGB::Graphics::OpenGL {
             // Create the window and context
             SDL_WindowFlags window_flags = (SDL_WindowFlags) (SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI |
                                                               (settings.fullscreen ? SDL_WINDOW_FULLSCREEN : 0));
+            if (window != nullptr) {
+                SDL_DestroyWindow(window);
+            }
+
             window = SDL_CreateWindow("ReMania - GameBox", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                       settings.fullscreen ? settings.fullScreenSize.x : settings.windowedSize.x,
                                       settings.fullscreen ? settings.fullScreenSize.y : settings.windowedSize.y,
@@ -51,50 +55,13 @@ namespace RMGB::Graphics::OpenGL {
             ImGui_ImplOpenGL3_Init("#version 150");
         }
 
+        if (what & 0b000001) {
+
+        }
+
     }
 
     void Backend::Update() {
-        TracyCZoneNC(proc,"Process inputs",0x00ff00,true);
-        SDL_Event event;
-        keysPressed = {};
-        while (SDL_PollEvent(&event))
-        {
-#ifdef TRACY_ENABLE
-            switch (event.type) {
-                case SDL_KEYDOWN:
-                case SDL_KEYUP:
-                    TracyCMessageL(("Key event: "+std::string(SDL_GetKeyName(event.key.keysym.sym))).c_str());
-                case SDL_QUIT:
-                    TracyCMessageL("Quit event");
-            }
-#endif
-            ImGui_ImplSDL2_ProcessEvent(&event);
-            if (event.type == SDL_KEYDOWN && !ImGui::GetIO().WantCaptureKeyboard) {
-                keysPressed.emplace(event.key.keysym.sym);
-            }
-            if ((event.type == SDL_MOUSEBUTTONDOWN
-                || event.type == SDL_MOUSEMOTION
-                || event.type == SDL_MOUSEWHEEL)
-                && !ImGui::GetIO().WantCaptureMouse)
-            {
-                // Change internal mouse state
-                switch (event.type) {
-                    case SDL_MOUSEMOTION:
-                        SDL_GetMouseState(&mousePos.x,&mousePos.y);
-                        break;
-                    case SDL_MOUSEBUTTONDOWN:
-                        switch(event.button.button) {
-                            case SDL_BUTTON_RIGHT:
-                                mouseButtonState.x = true;
-                                break;
-                            case SDL_BUTTON_LEFT:
-                                mouseButtonState.y = true;
-                                break;
-                        }
-                }
-            }
-        }
-        TracyCZoneEnd(proc);
         TracyCZoneNC(clearScreen,"Clear screen",0x00ff00,true)
         // Reset window
         glViewport(0, 0, (int)ImGui::GetIO().DisplaySize.x, (int)ImGui::GetIO().DisplaySize.y);
@@ -102,7 +69,6 @@ namespace RMGB::Graphics::OpenGL {
         glClear(GL_COLOR_BUFFER_BIT);
         TracyCZoneEnd(clearScreen)
         TracyCZoneNC(renderGeom,"Render Geometry",0x00ff00,true);
-        for ()
         TracyCZoneEnd(renderGeom);
         TracyCZoneNC(imgui_render,"Render ImGui",0x7f007f,true)
         if (imGui) {
@@ -148,22 +114,6 @@ namespace RMGB::Graphics::OpenGL {
         return Obj.getAPI() == OpenGL_API;
     }
 
-    SDL_KeyCode Backend::getLastKey() {
-        return SDLK_CARET;
-    }
-
-    bool Backend::isKeyPressed(SDL_KeyCode key) {
-        return false;
-    }
-
-    glm::vec2 Backend::getMousePos() {
-        return glm::vec2();
-    }
-
-    bool Backend::isMousePressed() {
-        return false;
-    }
-
     void Backend::changeSettings() {
         int what = 0xFF;
         what ^= 0b1;
@@ -172,6 +122,23 @@ namespace RMGB::Graphics::OpenGL {
     }
 
     void Backend::Destroy() {
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+    }
+
+    Shader::Shader(std::string& content) {
+
+    }
+
+    Shader::Shader(std::ifstream& file) {
+
+    }
+
+    void Shader::fromFile(std::ifstream& file) {
+
+    }
+
+    void Shader::fromString(std::string& content) {
 
     }
 };
