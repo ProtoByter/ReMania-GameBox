@@ -138,8 +138,9 @@ namespace RMGB { namespace Graphics {
     /// Parent class for all Shaders
     /*! These constructors should be present on all child classes but C++ can't do virtual initalizers:
          @code
-         Shader(std::string& content)
-         Shader(std::ifstream& file)
+         Shader(std::string& content);
+         Shader(std::string content);
+         Shader(std::ifstream& file);
          @endcode
         */
     class Shader : private APISpec {
@@ -206,6 +207,14 @@ namespace RMGB { namespace Graphics {
         Refresh
     };
 
+    /// Backend agnostic initalization flags
+    enum InitFlags {
+        CONTEXT = 0b1, /// Sets the context up (eg. OpenGL context)
+        WINDOW = 0b10, /// Sets the window up
+        IMGUI = 0b100, /// Sets up ImGUI (or w/e other GUI is being used)
+        SHADERS = 0b1000 /// Compiles shaders (so GLSL etc)
+    };
+
     /// Contains the commands that are stored on the Render Queue
     struct RenderCommand {
         Command_Type type; /// The command type
@@ -228,7 +237,7 @@ namespace RMGB { namespace Graphics {
         /*!
          * @param what What needs to be initalized
          */
-        virtual void Init(int what = 0xFF) = 0;
+        virtual void Init(InitFlags what = (InitFlags)0xFF) = 0;
         /// Update the screen
         virtual void Update() = 0;
         /// Add a command to the Render Queue
