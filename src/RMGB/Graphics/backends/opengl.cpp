@@ -4,15 +4,13 @@
 using namespace RMGB::Graphics;
 
 namespace RMGB::Graphics::OpenGL {
-    void Backend::Init(int what) {
+    void Backend::Init(InitFlags what) {
         if (what & 0b1) {
             // Init SDL
             if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0) {
                 logger::log(logger::FATAL, "SDL Failed to initialize", "OpenGL Layer - Init", __FILE__, __LINE__);
             }
-        }
 
-        if (what & 0b01) {
             // Set OpenGL SDL attributes
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
@@ -21,11 +19,9 @@ namespace RMGB::Graphics::OpenGL {
             SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
             SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
         }
-        if (what & 0b001) {
-            SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, settings.vsync ? 1 : 0);
-        }
 
-        if (what & 0b0001) {
+        if (what & 0b10) {
+
             // Create the window and context
             SDL_WindowFlags window_flags = (SDL_WindowFlags) (SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI |
                                                               (settings.fullscreen ? SDL_WINDOW_FULLSCREEN : 0));
@@ -43,7 +39,7 @@ namespace RMGB::Graphics::OpenGL {
                 SDL_GL_SetSwapInterval(1); // Enable vsync
             }
         }
-        if (what & 0b00001) {
+        if (what & 0b100) {
             // Setup ImGui
             IMGUI_CHECKVERSION();
             ImGui::CreateContext();
@@ -55,8 +51,8 @@ namespace RMGB::Graphics::OpenGL {
             ImGui_ImplOpenGL3_Init("#version 150");
         }
 
-        if (what & 0b000001) {
-
+        if (what & 0b1000) {
+            // Compile Shaders
         }
 
     }

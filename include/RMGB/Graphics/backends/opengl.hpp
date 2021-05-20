@@ -13,9 +13,14 @@
 
 namespace RMGB::Graphics::OpenGL {
     class Backend : private RMGB::Graphics::Backend {
+        /// Returns true if Obj matches the internal API
+        /*!
+         * Returns true if Obj == OpenGL_API
+         * @param Obj an APISpec object
+         */
         bool CheckAPISpecObj(APISpec Obj);
 
-        void Init(int what = 0xFF) override;
+        void Init(InitFlags what = (InitFlags)0xFF) override;
 
         void Update() override;
 
@@ -28,29 +33,22 @@ namespace RMGB::Graphics::OpenGL {
         void Destroy() override;
 
     private:
-        bool imGui = true;
-        SDL_Window* window;
-        Settings settings{};
-        Settings settingsbak{};
-        SDL_GLContext gl_context;
+        bool imGui = true; /// ImGui toggle
+        SDL_Window* window; /// The SDL_Window object
+        Settings settings{}; /// A struct containing the settings
+        Settings settingsbak{}; /// A backup of the settings - used for comparing whether the settings have changed
+        SDL_GLContext gl_context; /// The OpenGL Context for SDL
     };
 
     class Shader : private RMGB::Graphics::Shader {
     public:
-        Shader(std::string& content);
-        Shader(std::string content);
-        Shader(std::ifstream& file);
-        void fromString(std::string& content) override;
-        void fromFile(std::ifstream& file) override;
+        Shader(std::string& content); /// Uses a reference to a string as the shader source (no copy)
+        Shader(std::string content); /// Uses a string as the shader source (copies it)
+        Shader(std::ifstream& file); /// Reads the source from a file
+        void fromString(std::string& content) override; /// Same as the reference constructor
+        void fromFile(std::ifstream& file) override; /// Same as file constructor
     };
 
 
-    enum InitFlags {
-        SDL = 0b1,
-        SDL_GL = 0b01,
-        WINDOW = 0b001,
-        IMGUI = 0b0001,
-        SHADERS = 0b00001
-    };
 }
 #endif
