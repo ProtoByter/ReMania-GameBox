@@ -89,38 +89,51 @@ $(document).ready(function(){initNavTree('classRMGB_1_1Graphics_1_1VertexArray.h
 <div class="title">RMGB::Graphics::VertexArray Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Parent class for all API-Specific Vertex Buffers.  
+ <a href="classRMGB_1_1Graphics_1_1VertexArray.html#details">More...</a></p>
+
+<p><code>#include &lt;graphics.hpp&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for RMGB::Graphics::VertexArray:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classRMGB_1_1Graphics_1_1VertexArray.png" usemap="#RMGB::Graphics::VertexArray_map" alt=""/>
   <map id="RMGB::Graphics::VertexArray_map" name="RMGB::Graphics::VertexArray_map">
-<area href="classRMGB_1_1Graphics_1_1APISpec.html" alt="RMGB::Graphics::APISpec" shape="rect" coords="0,0,181,24"/>
+<area href="classRMGB_1_1Graphics_1_1APISpec.html" title="Class used as a parent for all API Specific classes (Backends, Shaders etc)" alt="RMGB::Graphics::APISpec" shape="rect" coords="0,0,181,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ff3afe0c1601ee7152e341880efa0a0"><td class="memItemLeft" align="right" valign="top"><a id="a5ff3afe0c1601ee7152e341880efa0a0"></a>
-virtual const void&#160;</td><td class="memItemRight" valign="bottom"><b>bind</b> ()=0</td></tr>
-<tr class="separator:a5ff3afe0c1601ee7152e341880efa0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6714e33efcbe6ced8e9d5c4827c2ea9"><td class="memItemLeft" align="right" valign="top"><a id="ac6714e33efcbe6ced8e9d5c4827c2ea9"></a>
-virtual const void&#160;</td><td class="memItemRight" valign="bottom"><b>unbind</b> ()=0</td></tr>
-<tr class="separator:ac6714e33efcbe6ced8e9d5c4827c2ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73851e3fedfecc2e033c1929e3673ee7"><td class="memItemLeft" align="right" valign="top"><a id="a73851e3fedfecc2e033c1929e3673ee7"></a>
+virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexArray.html#a73851e3fedfecc2e033c1929e3673ee7">bind</a> () const =0</td></tr>
+<tr class="memdesc:a73851e3fedfecc2e033c1929e3673ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the Vertex Array. <br /></td></tr>
+<tr class="separator:a73851e3fedfecc2e033c1929e3673ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af72904f91545c461aa33b90a4da8da1a"><td class="memItemLeft" align="right" valign="top"><a id="af72904f91545c461aa33b90a4da8da1a"></a>
+virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexArray.html#af72904f91545c461aa33b90a4da8da1a">unbind</a> () const =0</td></tr>
+<tr class="memdesc:af72904f91545c461aa33b90a4da8da1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbinds the Vertex Array. <br /></td></tr>
+<tr class="separator:af72904f91545c461aa33b90a4da8da1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7872af4899930639884cf72f8e2ee84c"><td class="memItemLeft" align="right" valign="top"><a id="a7872af4899930639884cf72f8e2ee84c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addVertexBuffer</b> (const std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1VertexBuffer.html">VertexBuffer</a> &gt; VBO)=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexArray.html#a7872af4899930639884cf72f8e2ee84c">addVertexBuffer</a> (const std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1VertexBuffer.html">VertexBuffer</a> &gt; VBO)=0</td></tr>
+<tr class="memdesc:a7872af4899930639884cf72f8e2ee84c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a Vertex Array. <br /></td></tr>
 <tr class="separator:a7872af4899930639884cf72f8e2ee84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a167c3182829f46d43a63c22a85e241c4"><td class="memItemLeft" align="right" valign="top"><a id="a167c3182829f46d43a63c22a85e241c4"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setIndexBuffer</b> (const std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1IndexBuffer.html">IndexBuffer</a> &gt; IBO)=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexArray.html#a167c3182829f46d43a63c22a85e241c4">setIndexBuffer</a> (const std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1IndexBuffer.html">IndexBuffer</a> &gt; IBO)=0</td></tr>
+<tr class="memdesc:a167c3182829f46d43a63c22a85e241c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an Index Buffer. <br /></td></tr>
 <tr class="separator:a167c3182829f46d43a63c22a85e241c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a469b6fa74f9fd7d18687184b2402c2e3"><td class="memItemLeft" align="right" valign="top"><a id="a469b6fa74f9fd7d18687184b2402c2e3"></a>
-virtual const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1VertexBuffer.html">VertexBuffer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getVertexBuffers</b> ()=0</td></tr>
-<tr class="separator:a469b6fa74f9fd7d18687184b2402c2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e8e0b010904ffaf7ec77a7efa0daa63"><td class="memItemLeft" align="right" valign="top"><a id="a3e8e0b010904ffaf7ec77a7efa0daa63"></a>
-virtual const std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1IndexBuffer.html">IndexBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getIndexBuffer</b> ()=0</td></tr>
-<tr class="separator:a3e8e0b010904ffaf7ec77a7efa0daa63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91e780b234ebbdf6fba2713c886319da"><td class="memItemLeft" align="right" valign="top"><a id="a91e780b234ebbdf6fba2713c886319da"></a>
+virtual const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1VertexBuffer.html">VertexBuffer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexArray.html#a91e780b234ebbdf6fba2713c886319da">getVertexBuffers</a> () const =0</td></tr>
+<tr class="memdesc:a91e780b234ebbdf6fba2713c886319da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an std::vector of all the vertex buffers in the Vertex Array. <br /></td></tr>
+<tr class="separator:a91e780b234ebbdf6fba2713c886319da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd631985781fbc11ede9f2dee20925d6"><td class="memItemLeft" align="right" valign="top"><a id="abd631985781fbc11ede9f2dee20925d6"></a>
+virtual const std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1IndexBuffer.html">IndexBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexArray.html#abd631985781fbc11ede9f2dee20925d6">getIndexBuffer</a> () const =0</td></tr>
+<tr class="memdesc:abd631985781fbc11ede9f2dee20925d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Index Buffer of the Vertex Array. <br /></td></tr>
+<tr class="separator:abd631985781fbc11ede9f2dee20925d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Parent class for all API-Specific Vertex Buffers. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/runner/work/ReMania-GameBox/ReMania-GameBox/include/RMGB/Graphics/graphics.hpp</li>
 </ul>
 </div><!-- contents -->

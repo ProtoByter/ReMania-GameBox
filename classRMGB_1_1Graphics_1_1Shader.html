@@ -89,13 +89,18 @@ $(document).ready(function(){initNavTree('classRMGB_1_1Graphics_1_1Shader.html',
 <div class="title">RMGB::Graphics::Shader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Parent class for all Shaders.  
+ <a href="classRMGB_1_1Graphics_1_1Shader.html#details">More...</a></p>
+
+<p><code>#include &lt;graphics.hpp&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for RMGB::Graphics::Shader:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classRMGB_1_1Graphics_1_1Shader.png" usemap="#RMGB::Graphics::Shader_map" alt=""/>
   <map id="RMGB::Graphics::Shader_map" name="RMGB::Graphics::Shader_map">
-<area href="classRMGB_1_1Graphics_1_1APISpec.html" alt="RMGB::Graphics::APISpec" shape="rect" coords="0,0,205,24"/>
+<area href="classRMGB_1_1Graphics_1_1APISpec.html" title="Class used as a parent for all API Specific classes (Backends, Shaders etc)" alt="RMGB::Graphics::APISpec" shape="rect" coords="0,0,205,24"/>
 <area href="classRMGB_1_1Graphics_1_1OpenGL_1_1Shader.html" alt="RMGB::Graphics::OpenGL::Shader" shape="rect" coords="0,112,205,136"/>
   </map>
 </div></div>
@@ -109,7 +114,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>fromString</b
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>fromFile</b> (std::ifstream &amp;content)=0</td></tr>
 <tr class="separator:ae38b575a8e95a3c314b1b5168bc165c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Parent class for all Shaders. </p>
+<p>These constructors should be present on all child classes but C++ can't do virtual initalizers: </p><div class="fragment"><div class="line">Shader(std::string&amp; content);</div>
+<div class="line">Shader(std::string content);</div>
+<div class="line">Shader(std::ifstream&amp; file);</div>
+</div><!-- fragment --> </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/runner/work/ReMania-GameBox/ReMania-GameBox/include/RMGB/Graphics/graphics.hpp</li>
 </ul>
 </div><!-- contents -->

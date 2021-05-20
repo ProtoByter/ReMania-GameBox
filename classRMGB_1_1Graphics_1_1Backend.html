@@ -90,6 +90,11 @@ $(document).ready(function(){initNavTree('classRMGB_1_1Graphics_1_1Backend.html'
 <div class="title">RMGB::Graphics::Backend Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Parent class for all the Rendering backends.  
+ <a href="classRMGB_1_1Graphics_1_1Backend.html#details">More...</a></p>
+
+<p><code>#include &lt;graphics.hpp&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for RMGB::Graphics::Backend:</div>
 <div class="dyncontent">
@@ -103,23 +108,28 @@ Inheritance diagram for RMGB::Graphics::Backend:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4dad729a29aafddb8eaac019cc1af760"><td class="memItemLeft" align="right" valign="top"><a id="a4dad729a29aafddb8eaac019cc1af760"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (int what=0xFF)=0</td></tr>
-<tr class="separator:a4dad729a29aafddb8eaac019cc1af760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7bb4b802cb428b4cd42051a3ec1337"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1Backend.html#abb7bb4b802cb428b4cd42051a3ec1337">Init</a> (InitFlags what=(InitFlags) 0xFF)=0</td></tr>
+<tr class="memdesc:abb7bb4b802cb428b4cd42051a3ec1337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalizes the backend.  <a href="classRMGB_1_1Graphics_1_1Backend.html#abb7bb4b802cb428b4cd42051a3ec1337">More...</a><br /></td></tr>
+<tr class="separator:abb7bb4b802cb428b4cd42051a3ec1337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3e23aa9ecd02d921493b3d1041bf4ae"><td class="memItemLeft" align="right" valign="top"><a id="ac3e23aa9ecd02d921493b3d1041bf4ae"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1Backend.html#ac3e23aa9ecd02d921493b3d1041bf4ae">Update</a> ()=0</td></tr>
+<tr class="memdesc:ac3e23aa9ecd02d921493b3d1041bf4ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the screen. <br /></td></tr>
 <tr class="separator:ac3e23aa9ecd02d921493b3d1041bf4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5331bef56575e97bfcf9f9ad7cc18901"><td class="memItemLeft" align="right" valign="top"><a id="a5331bef56575e97bfcf9f9ad7cc18901"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Schedule</b> (<a class="el" href="structRMGB_1_1Graphics_1_1RenderCommand.html">RenderCommand</a> command)=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1Backend.html#a5331bef56575e97bfcf9f9ad7cc18901">Schedule</a> (<a class="el" href="structRMGB_1_1Graphics_1_1RenderCommand.html">RenderCommand</a> command)=0</td></tr>
+<tr class="memdesc:a5331bef56575e97bfcf9f9ad7cc18901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a command to the Render Queue. <br /></td></tr>
 <tr class="separator:a5331bef56575e97bfcf9f9ad7cc18901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab404ce281124549f576f06e1e804b4e9"><td class="memItemLeft" align="right" valign="top"><a id="ab404ce281124549f576f06e1e804b4e9"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleImGui</b> ()=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1Backend.html#ab404ce281124549f576f06e1e804b4e9">toggleImGui</a> ()=0</td></tr>
+<tr class="memdesc:ab404ce281124549f576f06e1e804b4e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn ImGui on/off. <br /></td></tr>
 <tr class="separator:ab404ce281124549f576f06e1e804b4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0f2a0ad68481752f8f984a9e2f66c18"><td class="memItemLeft" align="right" valign="top"><a id="ae0f2a0ad68481752f8f984a9e2f66c18"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Destroy</b> ()=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1Backend.html#ae0f2a0ad68481752f8f984a9e2f66c18">Destroy</a> ()=0</td></tr>
+<tr class="memdesc:ae0f2a0ad68481752f8f984a9e2f66c18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destory the <a class="el" href="classRMGB_1_1Graphics_1_1Backend.html" title="Parent class for all the Rendering backends.">Backend</a>. <br /></td></tr>
 <tr class="separator:ae0f2a0ad68481752f8f984a9e2f66c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf335d9072dda61bbc15103a5c0c7a4f"><td class="memItemLeft" align="right" valign="top"><a id="aaf335d9072dda61bbc15103a5c0c7a4f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>changeSettings</b> ()=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1Backend.html#aaf335d9072dda61bbc15103a5c0c7a4f">changeSettings</a> ()=0</td></tr>
+<tr class="memdesc:aaf335d9072dda61bbc15103a5c0c7a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the settings. <br /></td></tr>
 <tr class="separator:aaf335d9072dda61bbc15103a5c0c7a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -128,6 +138,43 @@ Public Attributes</h2></td></tr>
 <a class="el" href="classRMGB_1_1Graphics_1_1queue.html">queue</a>&lt; <a class="el" href="structRMGB_1_1Graphics_1_1RenderCommand.html">RenderCommand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commands</b></td></tr>
 <tr class="separator:a3dd8d1ba1e75d2b9ea41af2700ce8a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Parent class for all the Rendering backends. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abb7bb4b802cb428b4cd42051a3ec1337"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7bb4b802cb428b4cd42051a3ec1337">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void RMGB::Graphics::Backend::Init </td>
+          <td>(</td>
+          <td class="paramtype">InitFlags&#160;</td>
+          <td class="paramname"><em>what</em> = <code>(InitFlags)&#160;0xFF</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initalizes the backend. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">what</td><td>What needs to be initalized </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/runner/work/ReMania-GameBox/ReMania-GameBox/include/RMGB/Graphics/graphics.hpp</li>
 </ul>

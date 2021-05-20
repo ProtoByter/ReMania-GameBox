@@ -89,6 +89,11 @@ $(document).ready(function(){initNavTree('structRMGB_1_1Graphics_1_1RenderComman
 <div class="title">RMGB::Graphics::RenderCommand Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Contains the commands that are stored on the Render Queue.  
+ <a href="structRMGB_1_1Graphics_1_1RenderCommand.html#details">More...</a></p>
+
+<p><code>#include &lt;graphics.hpp&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -96,19 +101,29 @@ Public Attributes</h2></td></tr>
 Command_Type&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
 <tr class="separator:adb5224919643bbf10ce00c2a94b7b505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06ff30b200f32575d1cb0413fa17a375"><td class="memItemLeft" align="right" valign="top"><a id="a06ff30b200f32575d1cb0413fa17a375"></a>
-glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><b>viewport</b> = {-1,-1}</td></tr>
+glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRMGB_1_1Graphics_1_1RenderCommand.html#a06ff30b200f32575d1cb0413fa17a375">viewport</a> = {-1,-1}</td></tr>
+<tr class="memdesc:a06ff30b200f32575d1cb0413fa17a375"><td class="mdescLeft">&#160;</td><td class="mdescRight">The command type. <br /></td></tr>
 <tr class="separator:a06ff30b200f32575d1cb0413fa17a375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d1a5cfc398454599d7c9f6502301057"><td class="memItemLeft" align="right" valign="top"><a id="a7d1a5cfc398454599d7c9f6502301057"></a>
-glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><b>clearColour</b> = {-1,-1,-1,-1}</td></tr>
+glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRMGB_1_1Graphics_1_1RenderCommand.html#a7d1a5cfc398454599d7c9f6502301057">clearColour</a> = {-1,-1,-1,-1}</td></tr>
+<tr class="memdesc:a7d1a5cfc398454599d7c9f6502301057"><td class="mdescLeft">&#160;</td><td class="mdescRight">The new viewport size. <br /></td></tr>
 <tr class="separator:a7d1a5cfc398454599d7c9f6502301057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a620cae40464e1a4350259ffd5f2cdf77"><td class="memItemLeft" align="right" valign="top"><a id="a620cae40464e1a4350259ffd5f2cdf77"></a>
+std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1Shader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRMGB_1_1Graphics_1_1RenderCommand.html#a620cae40464e1a4350259ffd5f2cdf77">shader</a></td></tr>
+<tr class="memdesc:a620cae40464e1a4350259ffd5f2cdf77"><td class="mdescLeft">&#160;</td><td class="mdescRight">The new clear colour. <br /></td></tr>
+<tr class="separator:a620cae40464e1a4350259ffd5f2cdf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9de947e77742d3a4d54c6a7e429eb4f6"><td class="memItemLeft" align="right" valign="top"><a id="a9de947e77742d3a4d54c6a7e429eb4f6"></a>
-std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1VertexArray.html">VertexArray</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>renderObject</b></td></tr>
+std::shared_ptr&lt; <a class="el" href="classRMGB_1_1Graphics_1_1VertexArray.html">VertexArray</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRMGB_1_1Graphics_1_1RenderCommand.html#a9de947e77742d3a4d54c6a7e429eb4f6">renderObject</a></td></tr>
+<tr class="memdesc:a9de947e77742d3a4d54c6a7e429eb4f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The shader to render an object with. <br /></td></tr>
 <tr class="separator:a9de947e77742d3a4d54c6a7e429eb4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa12f3388d998b128b08c1fd2cbf64fcb"><td class="memItemLeft" align="right" valign="top"><a id="aa12f3388d998b128b08c1fd2cbf64fcb"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>indexCount</b> = -1</td></tr>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRMGB_1_1Graphics_1_1RenderCommand.html#aa12f3388d998b128b08c1fd2cbf64fcb">indexCount</a> = -1</td></tr>
+<tr class="memdesc:aa12f3388d998b128b08c1fd2cbf64fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object to render. <br /></td></tr>
 <tr class="separator:aa12f3388d998b128b08c1fd2cbf64fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Contains the commands that are stored on the Render Queue. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/runner/work/ReMania-GameBox/ReMania-GameBox/include/RMGB/Graphics/graphics.hpp</li>
 </ul>
 </div><!-- contents -->

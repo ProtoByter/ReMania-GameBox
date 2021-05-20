@@ -89,34 +89,75 @@ $(document).ready(function(){initNavTree('classRMGB_1_1Graphics_1_1VertexBuffer.
 <div class="title">RMGB::Graphics::VertexBuffer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Parent class for all API-Specific Vertex Buffers.  
+ <a href="classRMGB_1_1Graphics_1_1VertexBuffer.html#details">More...</a></p>
+
+<p><code>#include &lt;graphics.hpp&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for RMGB::Graphics::VertexBuffer:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classRMGB_1_1Graphics_1_1VertexBuffer.png" usemap="#RMGB::Graphics::VertexBuffer_map" alt=""/>
   <map id="RMGB::Graphics::VertexBuffer_map" name="RMGB::Graphics::VertexBuffer_map">
-<area href="classRMGB_1_1Graphics_1_1APISpec.html" alt="RMGB::Graphics::APISpec" shape="rect" coords="0,0,183,24"/>
+<area href="classRMGB_1_1Graphics_1_1APISpec.html" title="Class used as a parent for all API Specific classes (Backends, Shaders etc)" alt="RMGB::Graphics::APISpec" shape="rect" coords="0,0,183,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a51e726563e1c8f9939cdf5674ed04b89"><td class="memItemLeft" align="right" valign="top"><a id="a51e726563e1c8f9939cdf5674ed04b89"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (size_t elemSize)=0</td></tr>
+<tr class="memitem:a51e726563e1c8f9939cdf5674ed04b89"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexBuffer.html#a51e726563e1c8f9939cdf5674ed04b89">setSize</a> (size_t elemSize)=0</td></tr>
+<tr class="memdesc:a51e726563e1c8f9939cdf5674ed04b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of each element.  <a href="classRMGB_1_1Graphics_1_1VertexBuffer.html#a51e726563e1c8f9939cdf5674ed04b89">More...</a><br /></td></tr>
 <tr class="separator:a51e726563e1c8f9939cdf5674ed04b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c354dd793e3dcf321079905f9fc774c"><td class="memItemLeft" align="right" valign="top"><a id="a8c354dd793e3dcf321079905f9fc774c"></a>
-virtual const void&#160;</td><td class="memItemRight" valign="bottom"><b>bind</b> ()=0</td></tr>
-<tr class="separator:a8c354dd793e3dcf321079905f9fc774c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbc5bd24b0ff3a15b823bb73eb40b7ba"><td class="memItemLeft" align="right" valign="top"><a id="abbc5bd24b0ff3a15b823bb73eb40b7ba"></a>
-virtual const void&#160;</td><td class="memItemRight" valign="bottom"><b>unbind</b> ()=0</td></tr>
-<tr class="separator:abbc5bd24b0ff3a15b823bb73eb40b7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26841b31cdaeb97f935f45e43d274ee2"><td class="memItemLeft" align="right" valign="top"><a id="a26841b31cdaeb97f935f45e43d274ee2"></a>
-virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> ()=0</td></tr>
-<tr class="separator:a26841b31cdaeb97f935f45e43d274ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ccf69580800893c74dc159913b039fb"><td class="memItemLeft" align="right" valign="top"><a id="a0ccf69580800893c74dc159913b039fb"></a>
+virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexBuffer.html#a0ccf69580800893c74dc159913b039fb">bind</a> () const =0</td></tr>
+<tr class="memdesc:a0ccf69580800893c74dc159913b039fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the Vertex Buffer. <br /></td></tr>
+<tr class="separator:a0ccf69580800893c74dc159913b039fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a066d85d9d5298149a0e06aebf7cd46b8"><td class="memItemLeft" align="right" valign="top"><a id="a066d85d9d5298149a0e06aebf7cd46b8"></a>
+virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexBuffer.html#a066d85d9d5298149a0e06aebf7cd46b8">unbind</a> () const =0</td></tr>
+<tr class="memdesc:a066d85d9d5298149a0e06aebf7cd46b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbinds the Vertex Buffer. <br /></td></tr>
+<tr class="separator:a066d85d9d5298149a0e06aebf7cd46b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acefe5ed0396361160a1651fcc1a192e1"><td class="memItemLeft" align="right" valign="top"><a id="acefe5ed0396361160a1651fcc1a192e1"></a>
+virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexBuffer.html#acefe5ed0396361160a1651fcc1a192e1">getSize</a> () const =0</td></tr>
+<tr class="memdesc:acefe5ed0396361160a1651fcc1a192e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the elements in the Vertex Buffer. <br /></td></tr>
+<tr class="separator:acefe5ed0396361160a1651fcc1a192e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca95de6bbc7b0209f4e5221bfeeca49f"><td class="memItemLeft" align="right" valign="top"><a id="aca95de6bbc7b0209f4e5221bfeeca49f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setData</b> (const void *data, size_t size)=0</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRMGB_1_1Graphics_1_1VertexBuffer.html#aca95de6bbc7b0209f4e5221bfeeca49f">setData</a> (const void *data, size_t size)=0</td></tr>
+<tr class="memdesc:aca95de6bbc7b0209f4e5221bfeeca49f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the data in the vertex buffer. <br /></td></tr>
 <tr class="separator:aca95de6bbc7b0209f4e5221bfeeca49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Parent class for all API-Specific Vertex Buffers. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a51e726563e1c8f9939cdf5674ed04b89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51e726563e1c8f9939cdf5674ed04b89">&#9670;&nbsp;</a></span>setSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void RMGB::Graphics::VertexBuffer::setSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>elemSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the size of each element. </p>
+<p>This should reset the data within the vertex buffer </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/runner/work/ReMania-GameBox/ReMania-GameBox/include/RMGB/Graphics/graphics.hpp</li>
 </ul>
